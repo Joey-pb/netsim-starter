@@ -21,12 +21,6 @@ const MY_NAME = getEnvVariables("MY_NAME") || "Anonymous";
 
 const url = `ws://${LISTENER_IP}:${LISTENER_PORT}`;
 
-// CHECK ENVIRONMENT VARIABLES
-if (!LISTENER_IP) {
-  console.error("❌ LISTENER_IP is not set in the environment variables.");
-  process.exit(1);
-}
-
 console.log(`🔌 Connecting to NetSim Grid at ${url}...`);
 
 // CONNECTION
