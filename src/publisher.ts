@@ -3,7 +3,14 @@ import dotenv from "dotenv";
 import path from "path/win32";
 
 // CONFIGURATION
-dotenv.config({ path: path.resolve(__dirname, "../.env") });
+// -- Load environment variables from .env file --
+const env = dotenv.config({ path: path.resolve(__dirname, "../.env") });
+
+if (env.error) {
+  console.warn(
+    "⚠️  No .env file found. Create one in the project root with the required variables found in .env.example.",
+  );
+}
 
 function getEnvVariables(key: string) {
   const value = process.env[key];
@@ -17,7 +24,7 @@ function getEnvVariables(key: string) {
 
 const LISTENER_IP = getEnvVariables("LISTENER_IP");
 const LISTENER_PORT = "3000";
-const MY_NAME = getEnvVariables("MY_NAME") || "Anonymous";
+const MY_NAME = getEnvVariables("MY_NAME");
 
 const url = `ws://${LISTENER_IP}:${LISTENER_PORT}`;
 
