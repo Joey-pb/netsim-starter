@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "@types/bun": "latest"
+  },
+  "name": "netsim",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}
